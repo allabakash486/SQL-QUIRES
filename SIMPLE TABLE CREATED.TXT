@@ -1,0 +1,44 @@
+SQL> SET PAGES 200 LINES 200
+SQL> CL SCR
+SQL> CREATE TABLE COURSES(CID NUMBER(4) PRIMARY KEY,CNAME VARCHAR(10) UNIQUE,C_FEES NUMBER(4) CHECK(C_FEES>20000), C_TRAINER VARCHAR(10) );
+
+Table created.
+
+SQL> CREATE TABLE STUDENTS(ROLL_NO NUMBER(5) PRIMARY KEY,S_NAME VARCHAR(10) NOT NULL, SPHN NUMBER(10) NOT NULL ,Semail VARCHAR(15),SADDRES VARCHAR(15) ,CID NUMBER(5) REFERENCES COURSES(CID) );
+
+Table created.
+
+SQL> DESC TABLE
+ERROR:
+ORA-00931: missing identifier 
+
+
+SQL> DESC TABLES
+ERROR:
+ORA-04043: object TABLES does not exist 
+
+
+SQL> DESC AUTHOR
+ERROR:
+ORA-04043: object AUTHOR does not exist 
+
+
+SQL> DESC COURSES
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ CID                                                                                                               NOT NULL NUMBER(4)
+ CNAME                                                                                                                      VARCHAR2(10)
+ C_FEES                                                                                                                     NUMBER(4)
+ C_TRAINER                                                                                                                  VARCHAR2(10)
+
+SQL> DESC STUDENTS
+ Name                                                                                                              Null?    Type
+ ----------------------------------------------------------------------------------------------------------------- -------- ----------------------------------------------------------------------------
+ ROLL_NO                                                                                                           NOT NULL NUMBER(5)
+ S_NAME                                                                                                            NOT NULL VARCHAR2(10)
+ SPHN                                                                                                              NOT NULL NUMBER(10)
+ SEMAIL                                                                                                                     VARCHAR2(15)
+ SADDRES                                                                                                                    VARCHAR2(15)
+ CID                                                                                                                        NUMBER(5)
+
+SQL> SPOOL OFF

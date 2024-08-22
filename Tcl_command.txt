@@ -1,0 +1,164 @@
+SQL> cl scr;
+SQL> insert into doctor values(109,'Amla',908900,'MCA');
+
+1 row created.
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL> insert into doctor values(108,'Alma',2890909,'MCA');
+
+1 row created.
+
+SQL>  insert into doctor values(107,'Bhima',389879,'MCA');
+
+1 row created.
+
+SQL> savepoint b;
+
+Savepoint created.
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from doctor;
+
+       DID DNAME      DPHN       DQUALIFICA                                     
+---------- ---------- ---------- ----------                                     
+      1002 Sheik      147895632  MBBS                                           
+       100 shani      1073940300 PHD                                            
+       101 SHARU      90878765   MS                                             
+       103 Sham       90890890   BTECH                                          
+       104 SHAMI      909890098  MTECH                                          
+      1000 SHAIK      5789461230 MBBS                                           
+      1001 SYED       7894563210 MBBBS                                          
+       109 Amla       908900     MCA                                            
+
+8 rows selected.
+
+SQL>  insert into doctor values(108,'Alma',2890909,'MCA');
+
+1 row created.
+
+SQL>  insert into doctor values(107,'Bhima',389879,'MCA');
+
+1 row created.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> savepoint a;
+
+Savepoint created.
+
+SQL> insert into doctor values(106,'Hema',89898789,'MCA');
+
+1 row created.
+
+SQL> savpoint b;
+SP2-0042: unknown command "savpoint b" - rest of line ignored.
+SQL> svaepoint b;
+SP2-0734: unknown command beginning "svaepoint ..." - rest of line ignored.
+SQL> savepoint b;
+
+Savepoint created.
+
+SQL> select * from doctor;
+
+       DID DNAME      DPHN       DQUALIFICA                                     
+---------- ---------- ---------- ----------                                     
+      1002 Sheik      147895632  MBBS                                           
+       100 shani      1073940300 PHD                                            
+       101 SHARU      90878765   MS                                             
+       103 Sham       90890890   BTECH                                          
+       104 SHAMI      909890098  MTECH                                          
+      1000 SHAIK      5789461230 MBBS                                           
+      1001 SYED       7894563210 MBBBS                                          
+       109 Amla       908900     MCA                                            
+       108 Alma       2890909    MCA                                            
+       107 Bhima      389879     MCA                                            
+       106 Hema       89898789   MCA                                            
+
+11 rows selected.
+
+SQL> rollback a;
+rollback a
+         *
+ERROR at line 1:
+ORA-02181: invalid option to ROLLBACK WORK 
+
+
+SQL> rollback to a;
+
+Rollback complete.
+
+SQL> select * from doctor;
+
+       DID DNAME      DPHN       DQUALIFICA                                     
+---------- ---------- ---------- ----------                                     
+      1002 Sheik      147895632  MBBS                                           
+       100 shani      1073940300 PHD                                            
+       101 SHARU      90878765   MS                                             
+       103 Sham       90890890   BTECH                                          
+       104 SHAMI      909890098  MTECH                                          
+      1000 SHAIK      5789461230 MBBS                                           
+      1001 SYED       7894563210 MBBBS                                          
+       109 Amla       908900     MCA                                            
+       108 Alma       2890909    MCA                                            
+       107 Bhima      389879     MCA                                            
+
+10 rows selected.
+
+SQL> commit;
+
+Commit complete.
+
+SQL> grant select on doctor to shaik;
+
+Grant succeeded.
+
+SQL> conn shaik;
+Connected.
+SQL> select * from scott.doctor;
+
+       DID DNAME      DPHN       DQUALIFICA                                     
+---------- ---------- ---------- ----------                                     
+      1002 Sheik      147895632  MBBS                                           
+       100 shani      1073940300 PHD                                            
+       101 SHARU      90878765   MS                                             
+       103 Sham       90890890   BTECH                                          
+       104 SHAMI      909890098  MTECH                                          
+      1000 SHAIK      5789461230 MBBS                                           
+      1001 SYED       7894563210 MBBBS                                          
+       109 Amla       908900     MCA                                            
+       108 Alma       2890909    MCA                                            
+       107 Bhima      389879     MCA                                            
+
+10 rows selected.
+
+SQL> delete from scott.doctor where dname='SYED';
+
+1 row deleted.
+
+SQL> CONN SCOTT
+Connected.
+SQL> select * from doctor;
+
+       DID DNAME      DPHN       DQUALIFICA                                     
+---------- ---------- ---------- ----------                                     
+      1002 Sheik      147895632  MBBS                                           
+       100 shani      1073940300 PHD                                            
+       101 SHARU      90878765   MS                                             
+       103 Sham       90890890   BTECH                                          
+       104 SHAMI      909890098  MTECH                                          
+      1000 SHAIK      5789461230 MBBS                                           
+       109 Amla       908900     MCA                                            
+       108 Alma       2890909    MCA                                            
+       107 Bhima      389879     MCA                                            
+
+9 rows selected.
+
+SQL> spool off

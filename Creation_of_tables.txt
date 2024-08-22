@@ -1,0 +1,256 @@
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+PRODUCT                        TABLE                                            
+VACCINE                        TABLE                                            
+COURSES                        TABLE                                            
+STUDENTS                       TABLE                                            
+CUSTOMER                       TABLE                                            
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+PEOPLE                         TABLE                                            
+DOCTOR                         TABLE                                            
+PATIENT                        TABLE                                            
+DETAILS                        VIEW                                             
+
+15 rows selected.
+
+SQL> drop table students;
+
+Table dropped.
+
+SQL> purge table students;
+
+Table purged.
+
+SQL> drop table customer;
+
+Table dropped.
+
+SQL> purge table customer;
+
+Table purged.
+
+SQL> drop table people;
+
+Table dropped.
+
+SQL> purge table people;
+
+Table purged.
+
+SQL> drop table courses;
+
+Table dropped.
+
+SQL> purge table courses;
+
+Table purged.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+PRODUCT                        TABLE                                            
+VACCINE                        TABLE                                            
+DOCTOR                         TABLE                                            
+PATIENT                        TABLE                                            
+DETAILS                        VIEW                                             
+
+11 rows selected.
+
+SQL> create table Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK AGE<18);
+create table Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK AGE<18)
+                                                                                           *
+ERROR at line 1:
+ORA-00906: missing left parenthesis 
+
+
+SQL> create table Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>18),GENDER VARCHR(6) NOT NULL);
+create table Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>18),GENDER VARCHR(6) NOT NULL)
+                                                                                                                 *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> create tabel Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18));
+create tabel Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18))
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> create tabel  Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18));
+create tabel  Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18))
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> CREATE TEBLE Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18));
+CREATE TEBLE Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18))
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> CREATE TABLE Student(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(10) UNIQUE,AGE NUMBER(2) CHECK (AGE>=18));
+
+Table created.
+
+SQL> DROP TABLE STUDENT;
+
+Table dropped.
+
+SQL> CREATE TABEL COURSES(CID NUMBER(4) PRIMARY KEY, CNAME VARCHAR(20) UNIQUE,DURATION VARCHAR
+  2  (10) NOT NULL, FEES NUMBER(6));
+CREATE TABEL COURSES(CID NUMBER(4) PRIMARY KEY, CNAME VARCHAR(20) UNIQUE,DURATION VARCHAR
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> CREATE TABLE COURSES(CID NUMBER(4) PRIMARY KEY, CNAME VARCHAR(20) UNIQUE,DURATION VARCHAR(10) NOT NULL, FEES NUMBER(6));
+
+Table created.
+
+SQL> DESC COURSES;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CID                                       NOT NULL NUMBER(4)
+ CNAME                                              VARCHAR2(20)
+ DURATION                                  NOT NULL VARCHAR2(10)
+ FEES                                               NUMBER(6)
+
+SQL> INSERT INTO COURSES VALUES(1,'PYTHON FULLSTACK','1 YEAR',30000);
+
+1 row created.
+
+SQL> INSERT INTO COURSES VALUES(2,'JAVA FULLSTACK','1 YEAR',30000);
+
+1 row created.
+
+SQL> INSERT INTO COURSES VALUES(3,'MERN FULLSTACK','1 YEAR',30000);
+
+1 row created.
+
+SQL> INSERT INTO COURSES VALUES(4,'DEVOPS','1 YEAR',30000);
+
+1 row created.
+
+SQL> SELECT * FROM COURSES;
+
+       CID CNAME                DURATION         FEES                           
+---------- -------------------- ---------- ----------                           
+         1 PYTHON FULLSTACK     1 YEAR          30000                           
+         2 JAVA FULLSTACK       1 YEAR          30000                           
+         3 MERN FULLSTACK       1 YEAR          30000                           
+         4 DEVOPS               1 YEAR          30000                           
+
+SQL> COMMIT
+  2  ;
+
+Commit complete.
+
+SQL> CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL ,CID REFERENCES BY COURSES(CID));
+CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL ,CID REFERENCES BY COURSES(CID))
+                                                                                                               *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERNCES BY COURSES(CID));
+CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERNCES BY COURSES(CID))
+                                                                                                             *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERNCES BY COURSES(CID) );
+CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(25) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERNCES BY COURSES(CID) )
+                                                                                                             *
+ERROR at line 1:
+ORA-00907: missing right parenthesis 
+
+
+SQL> CREATE TABLE STUDENT (ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) );
+CREATE TABLE STUDENT (ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) )
+                                                                                                                         *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> CREATE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) );
+CREATE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) )
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command 
+
+
+SQL> CREATE TABLE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) );
+CREATE TABLE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) )
+                                                                                                                                *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+DEPT                           TABLE                                            
+EMP                            TABLE                                            
+BONUS                          TABLE                                            
+SALGRADE                       TABLE                                            
+AUTHOR                         TABLE                                            
+BOOK                           TABLE                                            
+PRODUCT                        TABLE                                            
+VACCINE                        TABLE                                            
+DOCTOR                         TABLE                                            
+PATIENT                        TABLE                                            
+DETAILS                        VIEW                                             
+
+TNAME                          TABTYPE  CLUSTERID                               
+------------------------------ ------- ----------                               
+BIN$D6Hci3vySlqyFR5P3ryeew==$0 TABLE                                            
+COURSES                        TABLE                                            
+
+13 rows selected.
+
+SQL> SHOW RECYCLEBIN;
+ORIGINAL NAME    RECYCLEBIN NAME                OBJECT TYPE  DROP TIME          
+---------------- ------------------------------ ------------ -------------------
+STUDENT          BIN$D6Hci3vySlqyFR5P3ryeew==$0 TABLE        2024-08-22:10:40:23
+SQL> PURGE TABLE STUDENT;
+
+Table purged.
+
+SQL> CREATE TABLE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) );
+CREATE TABLE STUDENT_DETAILS(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) )
+                                                                                                                                *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL>  CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) );
+ CREATE TABLE STUDENT(ID NUMBER(4) PRIMARY KEY,SNAME VARCHAR(20) UNIQUE,SAGE NUMBER(2) NOT NULL,CID NUMBER(4) REFERENCES BY COURSES(CID) )
+                                                                                                                         *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> SPOOL OFF

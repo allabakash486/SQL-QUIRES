@@ -1,0 +1,138 @@
+SQL> set lines 200 pages 200;
+SQL> conn system;
+Connected.
+SQL> grant create viwe to scott;
+grant create viwe to scott
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege 
+
+
+SQL> grant create view to scott;
+
+Grant succeeded.
+
+SQL> conn scott;
+Connected.
+SQL> create view emp_detail as select * from emp where ename='SALESMAN';
+
+View created.
+
+SQL> slect * from emp_details;
+SP2-0734: unknown command beginning "slect * fr..." - rest of line ignored.
+SQL> select * from emp_detail;
+
+no rows selected
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+AUTHOR                         TABLE                                                                                                                                                                    
+BOOK                           TABLE                                                                                                                                                                    
+PRODUCT                        TABLE                                                                                                                                                                    
+VACCINE                        TABLE                                                                                                                                                                    
+COURSES                        TABLE                                                                                                                                                                    
+STUDENTS                       TABLE                                                                                                                                                                    
+CUSTOMER                       TABLE                                                                                                                                                                    
+PEOPLE                         TABLE                                                                                                                                                                    
+DOCTOR                         TABLE                                                                                                                                                                    
+PATIENT                        TABLE                                                                                                                                                                    
+EMP_DETAIL                     VIEW                                                                                                                                                                     
+
+15 rows selected.
+
+SQL> select * from emp;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30                                                                                                                   
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10                                                                                                                   
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20                                                                                                                   
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20                                                                                                                   
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30                                                                                                                   
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20                                                                                                                   
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10                                                                                                                   
+
+14 rows selected.
+
+SQL> drop view emp_detail;
+
+View dropped.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+AUTHOR                         TABLE                                                                                                                                                                    
+BOOK                           TABLE                                                                                                                                                                    
+PRODUCT                        TABLE                                                                                                                                                                    
+VACCINE                        TABLE                                                                                                                                                                    
+COURSES                        TABLE                                                                                                                                                                    
+STUDENTS                       TABLE                                                                                                                                                                    
+CUSTOMER                       TABLE                                                                                                                                                                    
+PEOPLE                         TABLE                                                                                                                                                                    
+DOCTOR                         TABLE                                                                                                                                                                    
+PATIENT                        TABLE                                                                                                                                                                    
+
+14 rows selected.
+
+SQL> craete view emp_dateils as from emp where job = 'SALESMAN';
+SP2-0734: unknown command beginning "craete vie..." - rest of line ignored.
+SQL> CREATE VIEW EMP_DETAILS AS SELECT * FROM EMP WHERE JOB='SALESMAN';
+
+View created.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+AUTHOR                         TABLE                                                                                                                                                                    
+BOOK                           TABLE                                                                                                                                                                    
+PRODUCT                        TABLE                                                                                                                                                                    
+VACCINE                        TABLE                                                                                                                                                                    
+COURSES                        TABLE                                                                                                                                                                    
+STUDENTS                       TABLE                                                                                                                                                                    
+CUSTOMER                       TABLE                                                                                                                                                                    
+PEOPLE                         TABLE                                                                                                                                                                    
+DOCTOR                         TABLE                                                                                                                                                                    
+PATIENT                        TABLE                                                                                                                                                                    
+EMP_DETAILS                    VIEW                                                                                                                                                                     
+
+15 rows selected.
+
+SQL> SELECT * FROM EMP_DETAILS;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30                                                                                                                   
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30                                                                                                                   
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30                                                                                                                   
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30                                                                                                                   
+
+SQL> conn system;
+Connected.
+SQL> revoke create view from scott;
+
+Revoke succeeded.
+
+SQL> spool off;

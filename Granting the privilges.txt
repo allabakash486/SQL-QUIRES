@@ -1,0 +1,365 @@
+SQL> cl scr
+SQL> set pages 200 lines 200
+SQL> show user;
+USER is "SCOTT"
+SQL> select * from all_user;
+select * from all_user
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from all_users;
+
+USERNAME                          USER_ID CREATED                                                                                                                                                       
+------------------------------ ---------- ---------                                                                                                                                                     
+BI                                     60 06-MAY-24                                                                                                                                                     
+PM                                     59 06-MAY-24                                                                                                                                                     
+SH                                     58 06-MAY-24                                                                                                                                                     
+IX                                     57 06-MAY-24                                                                                                                                                     
+OE                                     56 06-MAY-24                                                                                                                                                     
+HR                                     55 06-MAY-24                                                                                                                                                     
+SCOTT                                  54 30-AUG-05                                                                                                                                                     
+MGMT_VIEW                              53 30-AUG-05                                                                                                                                                     
+MDDATA                                 50 30-AUG-05                                                                                                                                                     
+SYSMAN                                 51 30-AUG-05                                                                                                                                                     
+MDSYS                                  46 30-AUG-05                                                                                                                                                     
+SI_INFORMTN_SCHEMA                     45 30-AUG-05                                                                                                                                                     
+ORDPLUGINS                             44 30-AUG-05                                                                                                                                                     
+ORDSYS                                 43 30-AUG-05                                                                                                                                                     
+OLAPSYS                                47 30-AUG-05                                                                                                                                                     
+ANONYMOUS                              39 30-AUG-05                                                                                                                                                     
+XDB                                    38 30-AUG-05                                                                                                                                                     
+CTXSYS                                 36 30-AUG-05                                                                                                                                                     
+EXFSYS                                 34 30-AUG-05                                                                                                                                                     
+WMSYS                                  25 30-AUG-05                                                                                                                                                     
+DBSNMP                                 24 30-AUG-05                                                                                                                                                     
+TSMSYS                                 21 30-AUG-05                                                                                                                                                     
+DMSYS                                  35 30-AUG-05                                                                                                                                                     
+DIP                                    19 30-AUG-05                                                                                                                                                     
+OUTLN                                  11 30-AUG-05                                                                                                                                                     
+SYSTEM                                  5 30-AUG-05                                                                                                                                                     
+SYS                                     0 30-AUG-05                                                                                                                                                     
+
+27 rows selected.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+DEPT                           TABLE                                                                                                                                                                    
+EMP                            TABLE                                                                                                                                                                    
+BONUS                          TABLE                                                                                                                                                                    
+SALGRADE                       TABLE                                                                                                                                                                    
+AUTHOR                         TABLE                                                                                                                                                                    
+BOOK                           TABLE                                                                                                                                                                    
+BIN$xMeZmj23Sy+8hq5dHY3YEw==$0 TABLE                                                                                                                                                                    
+PRODUCT                        TABLE                                                                                                                                                                    
+VACCINE                        TABLE                                                                                                                                                                    
+BIN$+8u17RPuT46QybLtGjKr+w==$0 TABLE                                                                                                                                                                    
+COURSES                        TABLE                                                                                                                                                                    
+STUDENTS                       TABLE                                                                                                                                                                    
+CUSTOMER                       TABLE                                                                                                                                                                    
+PEOPLE                         TABLE                                                                                                                                                                    
+DOCTOR                         TABLE                                                                                                                                                                    
+PATIENT                        TABLE                                                                                                                                                                    
+
+16 rows selected.
+
+SQL> conn hr;
+Connected.
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+REGIONS                        TABLE                                                                                                                                                                    
+COUNTRIES                      TABLE                                                                                                                                                                    
+LOCATIONS                      TABLE                                                                                                                                                                    
+DEPARTMENTS                    TABLE                                                                                                                                                                    
+JOBS                           TABLE                                                                                                                                                                    
+EMPLOYEES                      TABLE                                                                                                                                                                    
+JOB_HISTORY                    TABLE                                                                                                                                                                    
+EMP_DETAILS_VIEW               VIEW                                                                                                                                                                     
+
+8 rows selected.
+
+SQL> select * from regions;
+
+ REGION_ID REGION_NAME                                                                                                                                                                                  
+---------- -------------------------                                                                                                                                                                    
+         1 Europe                                                                                                                                                                                       
+         2 Americas                                                                                                                                                                                     
+         3 Asia                                                                                                                                                                                         
+         4 Middle East and Africa                                                                                                                                                                       
+
+SQL> select * from jobs;
+
+JOB_ID     JOB_TITLE                           MIN_SALARY MAX_SALARY                                                                                                                                    
+---------- ----------------------------------- ---------- ----------                                                                                                                                    
+AD_PRES    President                                20000      40000                                                                                                                                    
+AD_VP      Administration Vice President            15000      30000                                                                                                                                    
+AD_ASST    Administration Assistant                  3000       6000                                                                                                                                    
+FI_MGR     Finance Manager                           8200      16000                                                                                                                                    
+FI_ACCOUNT Accountant                                4200       9000                                                                                                                                    
+AC_MGR     Accounting Manager                        8200      16000                                                                                                                                    
+AC_ACCOUNT Public Accountant                         4200       9000                                                                                                                                    
+SA_MAN     Sales Manager                            10000      20000                                                                                                                                    
+SA_REP     Sales Representative                      6000      12000                                                                                                                                    
+PU_MAN     Purchasing Manager                        8000      15000                                                                                                                                    
+PU_CLERK   Purchasing Clerk                          2500       5500                                                                                                                                    
+ST_MAN     Stock Manager                             5500       8500                                                                                                                                    
+ST_CLERK   Stock Clerk                               2000       5000                                                                                                                                    
+SH_CLERK   Shipping Clerk                            2500       5500                                                                                                                                    
+IT_PROG    Programmer                                4000      10000                                                                                                                                    
+MK_MAN     Marketing Manager                         9000      15000                                                                                                                                    
+MK_REP     Marketing Representative                  4000       9000                                                                                                                                    
+HR_REP     Human Resources Representative            4000       9000                                                                                                                                    
+PR_REP     Public Relations Representative           4500      10500                                                                                                                                    
+
+19 rows selected.
+
+SQL> grant insert on regions to scott;
+
+Grant succeeded.
+
+SQL> conn scott;
+Connected.
+SQL> insert into regions.hr values(5,'INDIANS');
+insert into regions.hr values(5,'INDIANS')
+                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> INSERT INTO HR.REGIONS VALUES(5,'INDIANS');
+
+1 row created.
+
+SQL> CONN HR;
+Connected.
+SQL> SHOW USER;
+USER is "HR"
+SQL> SELECT * FROM REGIONS;
+
+ REGION_ID REGION_NAME                                                                                                                                                                                  
+---------- -------------------------                                                                                                                                                                    
+         5 INDIANS                                                                                                                                                                                      
+         1 Europe                                                                                                                                                                                       
+         2 Americas                                                                                                                                                                                     
+         3 Asia                                                                                                                                                                                         
+         4 Middle East and Africa                                                                                                                                                                       
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> REVOKE ALL ON REGIONS FROM SCOTT;
+
+Revoke succeeded.
+
+SQL> GRANT SELECT,UPDATE  ON REGIONS TO SCOTT;
+
+Grant succeeded.
+
+SQL> CONN SCOTT;
+Connected.
+SQL> select * from all_user;
+select * from all_user
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from all_user;
+select * from all_user
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> select * from all_users;
+
+USERNAME                          USER_ID CREATED                                                                                                                                                       
+------------------------------ ---------- ---------                                                                                                                                                     
+BI                                     60 06-MAY-24                                                                                                                                                     
+PM                                     59 06-MAY-24                                                                                                                                                     
+SH                                     58 06-MAY-24                                                                                                                                                     
+IX                                     57 06-MAY-24                                                                                                                                                     
+OE                                     56 06-MAY-24                                                                                                                                                     
+HR                                     55 06-MAY-24                                                                                                                                                     
+SCOTT                                  54 30-AUG-05                                                                                                                                                     
+MGMT_VIEW                              53 30-AUG-05                                                                                                                                                     
+MDDATA                                 50 30-AUG-05                                                                                                                                                     
+SYSMAN                                 51 30-AUG-05                                                                                                                                                     
+MDSYS                                  46 30-AUG-05                                                                                                                                                     
+SI_INFORMTN_SCHEMA                     45 30-AUG-05                                                                                                                                                     
+ORDPLUGINS                             44 30-AUG-05                                                                                                                                                     
+ORDSYS                                 43 30-AUG-05                                                                                                                                                     
+OLAPSYS                                47 30-AUG-05                                                                                                                                                     
+ANONYMOUS                              39 30-AUG-05                                                                                                                                                     
+XDB                                    38 30-AUG-05                                                                                                                                                     
+CTXSYS                                 36 30-AUG-05                                                                                                                                                     
+EXFSYS                                 34 30-AUG-05                                                                                                                                                     
+WMSYS                                  25 30-AUG-05                                                                                                                                                     
+DBSNMP                                 24 30-AUG-05                                                                                                                                                     
+TSMSYS                                 21 30-AUG-05                                                                                                                                                     
+DMSYS                                  35 30-AUG-05                                                                                                                                                     
+DIP                                    19 30-AUG-05                                                                                                                                                     
+OUTLN                                  11 30-AUG-05                                                                                                                                                     
+SYSTEM                                  5 30-AUG-05                                                                                                                                                     
+SYS                                     0 30-AUG-05                                                                                                                                                     
+
+27 rows selected.
+
+SQL> conn system;
+Connected.
+SQL> create user Shaik identified by tiger;
+
+User created.
+
+SQL> grant connct to Shaik;
+grant connct to Shaik
+      *
+ERROR at line 1:
+ORA-01919: role 'CONNCT' does not exist 
+
+
+SQL> grant connect to Shaik;
+
+Grant succeeded.
+
+SQL> grant all to Shaik;
+grant all to Shaik
+      *
+ERROR at line 1:
+ORA-01919: role 'ALL' does not exist 
+
+
+SQL> conn shaik;
+Connected.
+SQL> create table CUSTOMER@1(ID NUMBER(4) PRIMARY KEY,C_NAME VARCHAR(10) NOT NULL,C_CONTACT NUMBER(10) NOT NULL,C_ADDRS VARCHAR(10) NOT NULL );
+create table CUSTOMER@1(ID NUMBER(4) PRIMARY KEY,C_NAME VARCHAR(10) NOT NULL,C_CONTACT NUMBER(10) NOT NULL,C_ADDRS VARCHAR(10) NOT NULL )
+                     *
+ERROR at line 1:
+ORA-02021: DDL operations are not allowed on a remote database 
+
+
+SQL> CONN SYSTEM;
+Connected.
+SQL> grant all privileges to Shaik;
+
+Grant succeeded.
+
+SQL> conn shaik;
+Connected.
+SQL> create table CUSTOMER@1(ID NUMBER(4) PRIMARY KEY,C_NAME VARCHAR(10) NOT NULL,C_CONTACT NUMBER(10) NOT NULL,C_ADDRS VARCHAR(10) NOT NULL );
+create table CUSTOMER@1(ID NUMBER(4) PRIMARY KEY,C_NAME VARCHAR(10) NOT NULL,C_CONTACT NUMBER(10) NOT NULL,C_ADDRS VARCHAR(10) NOT NULL )
+                     *
+ERROR at line 1:
+ORA-02021: DDL operations are not allowed on a remote database 
+
+
+SQL> create table cost(ID NUMBER(4) PRIMARY KEY,C_NAME VARCHAR(10) NOT NULL,C_CONTACT NUMBER(10) NOT NULL,C_ADDRS VARCHAR(10) NOT NULL );
+
+Table created.
+
+SQL> create table product1(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,ID REFERENCES(COST) );
+create table product1(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,ID REFERENCES(COST) )
+                                                                                                                                              *
+ERROR at line 1:
+ORA-00957: duplicate column name 
+
+
+SQL> create table product1(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) );
+create table product1(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) )
+                                                                                                                                                             *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> create table PROD(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) );
+create table PROD(ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) )
+                                                                                                                                                         *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> create table PROD ( ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST  NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) );
+create table PROD ( ID NUMBER(5) PRIMARY KEY,P_NAME VARCHAR(10) UNIQUE,P_MFD DATE NOT NULL,P_COST  NUMBER(3) NOT NULL,P_EXPIRE DATE NOT NULL,PID  REFERENCES(COST) )
+                                                                                                                                                            *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> CREATE TABLE PRODUCTT(ID NUMBER(5) PRIMARY KEY,NAME VARCHAR(10) UNIQUE,MFD DATE NOT NULL,PID REFERENCES COST(ID) );
+
+Table created.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID                                                                                                                                                       
+------------------------------ ------- ----------                                                                                                                                                       
+COST                           TABLE                                                                                                                                                                    
+PRODUCTT                       TABLE                                                                                                                                                                    
+
+SQL> SELECT * FROM PRODUCTT;
+
+no rows selected
+
+SQL> SHOW PRODUCT;
+SP2-0158: unknown SHOW option "PRODUCT"
+SQL> SHOW USER;
+USER is "SHAIK"
+SQL> SELECT FROM PRODUCT;
+SELECT FROM PRODUCT
+       *
+ERROR at line 1:
+ORA-00936: missing expression 
+
+
+SQL> SELECT * FROM ALL_USERS;
+
+USERNAME                          USER_ID CREATED                                                                                                                                                       
+------------------------------ ---------- ---------                                                                                                                                                     
+SHAIK                                  61 23-MAY-24                                                                                                                                                     
+BI                                     60 06-MAY-24                                                                                                                                                     
+PM                                     59 06-MAY-24                                                                                                                                                     
+SH                                     58 06-MAY-24                                                                                                                                                     
+IX                                     57 06-MAY-24                                                                                                                                                     
+OE                                     56 06-MAY-24                                                                                                                                                     
+HR                                     55 06-MAY-24                                                                                                                                                     
+SCOTT                                  54 30-AUG-05                                                                                                                                                     
+MGMT_VIEW                              53 30-AUG-05                                                                                                                                                     
+MDDATA                                 50 30-AUG-05                                                                                                                                                     
+SYSMAN                                 51 30-AUG-05                                                                                                                                                     
+MDSYS                                  46 30-AUG-05                                                                                                                                                     
+SI_INFORMTN_SCHEMA                     45 30-AUG-05                                                                                                                                                     
+ORDPLUGINS                             44 30-AUG-05                                                                                                                                                     
+ORDSYS                                 43 30-AUG-05                                                                                                                                                     
+OLAPSYS                                47 30-AUG-05                                                                                                                                                     
+ANONYMOUS                              39 30-AUG-05                                                                                                                                                     
+XDB                                    38 30-AUG-05                                                                                                                                                     
+CTXSYS                                 36 30-AUG-05                                                                                                                                                     
+EXFSYS                                 34 30-AUG-05                                                                                                                                                     
+WMSYS                                  25 30-AUG-05                                                                                                                                                     
+DBSNMP                                 24 30-AUG-05                                                                                                                                                     
+TSMSYS                                 21 30-AUG-05                                                                                                                                                     
+DMSYS                                  35 30-AUG-05                                                                                                                                                     
+DIP                                    19 30-AUG-05                                                                                                                                                     
+OUTLN                                  11 30-AUG-05                                                                                                                                                     
+SYSTEM                                  5 30-AUG-05                                                                                                                                                     
+SYS                                     0 30-AUG-05                                                                                                                                                     
+
+28 rows selected.
+
+SQL> CONN XDB
+ERROR:
+ORA-28000: the account is locked 
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> show user;
+USER is ""
+SQL> conn shaik;
+Connected.
+SQL> spool off

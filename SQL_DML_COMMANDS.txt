@@ -1,0 +1,71 @@
+SQL> insert into emp values(11,'SHAIK','KING',NULL,'02-JAN-2003',100000,5000,20);
+insert into emp values(11,'SHAIK','KING',NULL,'02-JAN-2003',100000,5000,20)
+                                                            *
+ERROR at line 1:
+ORA-01438: value larger than specified precision allowed for this column 
+
+
+SQL> insert into emp values(11,'SHAIK','KING',NULL,'02-JAN-2003',10000,5000,20);
+
+1 row created.
+
+SQL> SELECT * FROM EMP WHERE EMPNO=11;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+        11 SHAIK      KING                 02-JAN-03      10000       5000         20                                                                                                                   
+
+SQL> INSERT INTO EMP VALUES(12,'SHAIK','PRICIDENT',NULL,'01-JAN-2003',5000,100,20);
+
+1 row created.
+
+SQL> SELECT * FROM EMP WHERE EMPNO =12;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+        12 SHAIK      PRICIDENT            01-JAN-03       5000        100         20                                                                                                                   
+
+SQL> INSERT INTO EMP(EMPNO,ENAME,JOB,SAL,DEPTNO,COMM)
+  2  VALUES(13,'SHAIK','MINISTER',30000,20,233);
+
+1 row created.
+
+SQL> SELECT * FROM EMP WHERE EMPNO=13;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO                                                                                                                   
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------                                                                                                                   
+        13 SHAIK      MINISTER                            30000        233         20                                                                                                                   
+
+SQL> UPDATE FROM EMP SET SAL = 50000 WHERE EMPNO = 11;
+UPDATE FROM EMP SET SAL = 50000 WHERE EMPNO = 11
+       *
+ERROR at line 1:
+ORA-00903: invalid table name 
+
+
+SQL> UPDATE EMP SET SAL = 50000 WHERE EMPNO = 11;
+
+1 row updated.
+
+SQL> UPDATE EMP SET SAL = 350 WHERE ENAME='SMITH';
+
+1 row updated.
+
+SQL> UPDATE EMP SET SAL = 10000 WHERE JOB = 'MANAGER';
+
+3 rows updated.
+
+SQL> UPDATE EMP SET SAL = SAL+(SAL*10/100) ;
+
+17 rows updated.
+
+SQL> COMMIT
+  2  ;
+
+Commit complete.
+
+SQL> DELETE FROM EMP WHERE ENAME = 'SMITH';
+
+1 row deleted.
+
+SQL> SPOOL OFF;

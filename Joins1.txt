@@ -1,0 +1,197 @@
+SQL> set lines 200 pages 200;
+SQL> select emp.* ,dept.* from emp,dept ;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                                                                     
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                                                                           
+        11 SHAIK      KING                 02-JAN-03      55000       5000         20         10 ACCOUNTING     NEW YORK                                                                                
+        12 SHAIK      PRICIDENT            01-JAN-03       5500        100         20         10 ACCOUNTING     NEW YORK                                                                                
+        13 SHAIK      MINISTER                            33000        233         20         10 ACCOUNTING     NEW YORK                                                                                
+      7369 SMITH      CLERK           7902 17-DEC-80        385                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         10 ACCOUNTING     NEW YORK                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         10 ACCOUNTING     NEW YORK                                                                                
+      7566 JONES      MANAGER         7839 02-APR-81      11000                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         10 ACCOUNTING     NEW YORK                                                                                
+      7698 BLAKE      MANAGER         7839 01-MAY-81      11000                    30         10 ACCOUNTING     NEW YORK                                                                                
+      7782 CLARK      MANAGER         7839 09-JUN-81      11000                    10         10 ACCOUNTING     NEW YORK                                                                                
+      7788 SCOTT      ANALYST         7566 19-APR-87       3300                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7839 KING       PRESIDENT            17-NOV-81       5500                    10         10 ACCOUNTING     NEW YORK                                                                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         10 ACCOUNTING     NEW YORK                                                                                
+      7876 ADAMS      CLERK           7788 23-MAY-87       1210                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7900 JAMES      CLERK           7698 03-DEC-81       1045                    30         10 ACCOUNTING     NEW YORK                                                                                
+      7902 FORD       ANALYST         7566 03-DEC-81       3300                    20         10 ACCOUNTING     NEW YORK                                                                                
+      7934 MILLER     CLERK           7782 23-JAN-82       1430                    10         10 ACCOUNTING     NEW YORK                                                                                
+        11 SHAIK      KING                 02-JAN-03      55000       5000         20         20 RESEARCH       DALLAS                                                                                  
+        12 SHAIK      PRICIDENT            01-JAN-03       5500        100         20         20 RESEARCH       DALLAS                                                                                  
+        13 SHAIK      MINISTER                            33000        233         20         20 RESEARCH       DALLAS                                                                                  
+      7369 SMITH      CLERK           7902 17-DEC-80        385                    20         20 RESEARCH       DALLAS                                                                                  
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         20 RESEARCH       DALLAS                                                                                  
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         20 RESEARCH       DALLAS                                                                                  
+      7566 JONES      MANAGER         7839 02-APR-81      11000                    20         20 RESEARCH       DALLAS                                                                                  
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         20 RESEARCH       DALLAS                                                                                  
+      7698 BLAKE      MANAGER         7839 01-MAY-81      11000                    30         20 RESEARCH       DALLAS                                                                                  
+      7782 CLARK      MANAGER         7839 09-JUN-81      11000                    10         20 RESEARCH       DALLAS                                                                                  
+      7788 SCOTT      ANALYST         7566 19-APR-87       3300                    20         20 RESEARCH       DALLAS                                                                                  
+      7839 KING       PRESIDENT            17-NOV-81       5500                    10         20 RESEARCH       DALLAS                                                                                  
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         20 RESEARCH       DALLAS                                                                                  
+      7876 ADAMS      CLERK           7788 23-MAY-87       1210                    20         20 RESEARCH       DALLAS                                                                                  
+      7900 JAMES      CLERK           7698 03-DEC-81       1045                    30         20 RESEARCH       DALLAS                                                                                  
+      7902 FORD       ANALYST         7566 03-DEC-81       3300                    20         20 RESEARCH       DALLAS                                                                                  
+      7934 MILLER     CLERK           7782 23-JAN-82       1430                    10         20 RESEARCH       DALLAS                                                                                  
+        11 SHAIK      KING                 02-JAN-03      55000       5000         20         30 SALES          CHICAGO                                                                                 
+        12 SHAIK      PRICIDENT            01-JAN-03       5500        100         20         30 SALES          CHICAGO                                                                                 
+        13 SHAIK      MINISTER                            33000        233         20         30 SALES          CHICAGO                                                                                 
+      7369 SMITH      CLERK           7902 17-DEC-80        385                    20         30 SALES          CHICAGO                                                                                 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         30 SALES          CHICAGO                                                                                 
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         30 SALES          CHICAGO                                                                                 
+      7566 JONES      MANAGER         7839 02-APR-81      11000                    20         30 SALES          CHICAGO                                                                                 
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         30 SALES          CHICAGO                                                                                 
+      7698 BLAKE      MANAGER         7839 01-MAY-81      11000                    30         30 SALES          CHICAGO                                                                                 
+      7782 CLARK      MANAGER         7839 09-JUN-81      11000                    10         30 SALES          CHICAGO                                                                                 
+      7788 SCOTT      ANALYST         7566 19-APR-87       3300                    20         30 SALES          CHICAGO                                                                                 
+      7839 KING       PRESIDENT            17-NOV-81       5500                    10         30 SALES          CHICAGO                                                                                 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         30 SALES          CHICAGO                                                                                 
+      7876 ADAMS      CLERK           7788 23-MAY-87       1210                    20         30 SALES          CHICAGO                                                                                 
+      7900 JAMES      CLERK           7698 03-DEC-81       1045                    30         30 SALES          CHICAGO                                                                                 
+      7902 FORD       ANALYST         7566 03-DEC-81       3300                    20         30 SALES          CHICAGO                                                                                 
+      7934 MILLER     CLERK           7782 23-JAN-82       1430                    10         30 SALES          CHICAGO                                                                                 
+        11 SHAIK      KING                 02-JAN-03      55000       5000         20         40 OPERATIONS     BOSTON                                                                                  
+        12 SHAIK      PRICIDENT            01-JAN-03       5500        100         20         40 OPERATIONS     BOSTON                                                                                  
+        13 SHAIK      MINISTER                            33000        233         20         40 OPERATIONS     BOSTON                                                                                  
+      7369 SMITH      CLERK           7902 17-DEC-80        385                    20         40 OPERATIONS     BOSTON                                                                                  
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         40 OPERATIONS     BOSTON                                                                                  
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         40 OPERATIONS     BOSTON                                                                                  
+      7566 JONES      MANAGER         7839 02-APR-81      11000                    20         40 OPERATIONS     BOSTON                                                                                  
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         40 OPERATIONS     BOSTON                                                                                  
+      7698 BLAKE      MANAGER         7839 01-MAY-81      11000                    30         40 OPERATIONS     BOSTON                                                                                  
+      7782 CLARK      MANAGER         7839 09-JUN-81      11000                    10         40 OPERATIONS     BOSTON                                                                                  
+      7788 SCOTT      ANALYST         7566 19-APR-87       3300                    20         40 OPERATIONS     BOSTON                                                                                  
+      7839 KING       PRESIDENT            17-NOV-81       5500                    10         40 OPERATIONS     BOSTON                                                                                  
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         40 OPERATIONS     BOSTON                                                                                  
+      7876 ADAMS      CLERK           7788 23-MAY-87       1210                    20         40 OPERATIONS     BOSTON                                                                                  
+      7900 JAMES      CLERK           7698 03-DEC-81       1045                    30         40 OPERATIONS     BOSTON                                                                                  
+      7902 FORD       ANALYST         7566 03-DEC-81       3300                    20         40 OPERATIONS     BOSTON                                                                                  
+      7934 MILLER     CLERK           7782 23-JAN-82       1430                    10         40 OPERATIONS     BOSTON                                                                                  
+
+68 rows selected.
+
+SQL> select emp.empno,emp.job,dept.loc from emp,dept where eemp.ename='SMITH';
+select emp.empno,emp.job,dept.loc from emp,dept where eemp.ename='SMITH'
+                                                      *
+ERROR at line 1:
+ORA-00904: "EEMP"."ENAME": invalid identifier 
+
+
+SQL> SELECT EMP.EMPNO,EMP.JOB,DEPT.LOC FROM EMP,DEPT WHERE EMP.ENAME='SMITH';
+
+     EMPNO JOB       LOC                                                                                                                                                                                
+---------- --------- -------------                                                                                                                                                                      
+      7369 CLERK     NEW YORK                                                                                                                                                                           
+      7369 CLERK     DALLAS                                                                                                                                                                             
+      7369 CLERK     CHICAGO                                                                                                                                                                            
+      7369 CLERK     BOSTON                                                                                                                                                                             
+
+SQL> SELECT EMP.* ,DEPT.* FROM EMP,DEPT WHERE EMP.JOB='SALESMAN';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO     DEPTNO DNAME          LOC                                                                                     
+---------- ---------- --------- ---------- --------- ---------- ---------- ---------- ---------- -------------- -------------                                                                           
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         10 ACCOUNTING     NEW YORK                                                                                
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         20 RESEARCH       DALLAS                                                                                  
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         30 SALES          CHICAGO                                                                                 
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1760        300         30         40 OPERATIONS     BOSTON                                                                                  
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         10 ACCOUNTING     NEW YORK                                                                                
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         20 RESEARCH       DALLAS                                                                                  
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         30 SALES          CHICAGO                                                                                 
+      7521 WARD       SALESMAN        7698 22-FEB-81       1375        500         30         40 OPERATIONS     BOSTON                                                                                  
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         10 ACCOUNTING     NEW YORK                                                                                
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         20 RESEARCH       DALLAS                                                                                  
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         30 SALES          CHICAGO                                                                                 
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1375       1400         30         40 OPERATIONS     BOSTON                                                                                  
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         10 ACCOUNTING     NEW YORK                                                                                
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         20 RESEARCH       DALLAS                                                                                  
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         30 SALES          CHICAGO                                                                                 
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1650          0         30         40 OPERATIONS     BOSTON                                                                                  
+
+16 rows selected.
+
+SQL> SELECT DEPT.* ,EMP.HIREDATE,EMP.ENAME FROM EMP,DEPT WHERE SUBSTR(EMP.JOB,1,3)='MAN';
+
+    DEPTNO DNAME          LOC           HIREDATE  ENAME                                                                                                                                                 
+---------- -------------- ------------- --------- ----------                                                                                                                                            
+        10 ACCOUNTING     NEW YORK      02-APR-81 JONES                                                                                                                                                 
+        20 RESEARCH       DALLAS        02-APR-81 JONES                                                                                                                                                 
+        30 SALES          CHICAGO       02-APR-81 JONES                                                                                                                                                 
+        40 OPERATIONS     BOSTON        02-APR-81 JONES                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK      01-MAY-81 BLAKE                                                                                                                                                 
+        20 RESEARCH       DALLAS        01-MAY-81 BLAKE                                                                                                                                                 
+        30 SALES          CHICAGO       01-MAY-81 BLAKE                                                                                                                                                 
+        40 OPERATIONS     BOSTON        01-MAY-81 BLAKE                                                                                                                                                 
+        10 ACCOUNTING     NEW YORK      09-JUN-81 CLARK                                                                                                                                                 
+        20 RESEARCH       DALLAS        09-JUN-81 CLARK                                                                                                                                                 
+        30 SALES          CHICAGO       09-JUN-81 CLARK                                                                                                                                                 
+        40 OPERATIONS     BOSTON        09-JUN-81 CLARK                                                                                                                                                 
+
+12 rows selected.
+
+SQL> SELECT EMP.ENAME ,DEPT.DNAME FROM EMP,DEPT WHERE EMP.DEPTNO=DEPT.DEPTNO;
+
+ENAME      DNAME                                                                                                                                                                                        
+---------- --------------                                                                                                                                                                               
+SHAIK      RESEARCH                                                                                                                                                                                     
+SHAIK      RESEARCH                                                                                                                                                                                     
+SHAIK      RESEARCH                                                                                                                                                                                     
+SMITH      RESEARCH                                                                                                                                                                                     
+ALLEN      SALES                                                                                                                                                                                        
+WARD       SALES                                                                                                                                                                                        
+JONES      RESEARCH                                                                                                                                                                                     
+MARTIN     SALES                                                                                                                                                                                        
+BLAKE      SALES                                                                                                                                                                                        
+CLARK      ACCOUNTING                                                                                                                                                                                   
+SCOTT      RESEARCH                                                                                                                                                                                     
+KING       ACCOUNTING                                                                                                                                                                                   
+TURNER     SALES                                                                                                                                                                                        
+ADAMS      RESEARCH                                                                                                                                                                                     
+JAMES      SALES                                                                                                                                                                                        
+FORD       RESEARCH                                                                                                                                                                                     
+MILLER     ACCOUNTING                                                                                                                                                                                   
+
+17 rows selected.
+
+SQL> SELECT EMP.SLA*12,EMP.JOB,DEPT.DNAME FROM EMP,DEPT WHERE EMP.ENAME='SMITH' AND DEPT.DETPNO = EMP.DEPTNO;
+SELECT EMP.SLA*12,EMP.JOB,DEPT.DNAME FROM EMP,DEPT WHERE EMP.ENAME='SMITH' AND DEPT.DETPNO = EMP.DEPTNO
+                                                                               *
+ERROR at line 1:
+ORA-00904: "DEPT"."DETPNO": invalid identifier 
+
+
+SQL> SELECT EMP.SAL*12,EMP.JOB,DEPT.DNAEM FROM EMP,DEPT WHERE EMP,ENAME='SMITH' AND DEPT.DEPTNO =EMP.DEPTNO;
+SELECT EMP.SAL*12,EMP.JOB,DEPT.DNAEM FROM EMP,DEPT WHERE EMP,ENAME='SMITH' AND DEPT.DEPTNO =EMP.DEPTNO
+                                                            *
+ERROR at line 1:
+ORA-00920: invalid relational operator 
+
+
+SQL> ELECT EMP.SAL*12,EMP.JOB,DEPT.DNAEM FROM EMP,DEPT WHERE EMP.ENAME='SMITH' AND DEPT.DEPTNO =EMP.DEPTNO;
+SP2-0734: unknown command beginning "ELECT EMP...." - rest of line ignored.
+SQL> SELECT EMP.SAL*12,EMP.JOB,DEPT.DNAEM FROM EMP,DEPT WHERE EMP.ENAME='SMITH' AND DEPT.DEPTNO =EMP.DEPTNO;
+SELECT EMP.SAL*12,EMP.JOB,DEPT.DNAEM FROM EMP,DEPT WHERE EMP.ENAME='SMITH' AND DEPT.DEPTNO =EMP.DEPTNO
+                          *
+ERROR at line 1:
+ORA-00904: "DEPT"."DNAEM": invalid identifier 
+
+
+SQL> SELECT EMP.SAL*12,EMP.ENAME,DEPT.DNAME FROM EMP, DEPT
+  2  WHERE EMP.ENAME='SMITH' AND DEPT.DEPTNO = EMP.DEPTNO;
+
+EMP.SAL*12 ENAME      DNAME                                                                                                                                                                             
+---------- ---------- --------------                                                                                                                                                                    
+      4620 SMITH      RESEARCH                                                                                                                                                                          
+
+SQL> SELECT EMP.* ,DEPT.DNAME FROM EMP,DEPT WHERE EMP.DEPTNO =7934 AND COMM IS NULL AND DEPT.DEPTNO = EMP.DEPTNO;
+
+no rows selected
+
+SQL> SELECT EMP.SAL/2,EMP.COMM*6,DEPT.* FROM EMP,DEPT WHERE SUBSTR(EMP.JOB,-1,-1)='N' AND TO_CHAR(EMP.HIREDATE,'YY') BETWEEN '82' AND '87' AND EMP.DEPTNO =DEPT.DEPTNO;
+
+no rows selected
+
+SQL> SPOOL OFF
